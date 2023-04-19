@@ -10,12 +10,12 @@ ddp_factory = {'cuda': MMDistributedDataParallel}
 def build_dp(model, device='cuda', dim=0, *args, **kwargs):
     """build DataParallel module by device type.
 
-    if device is cuda, return a MMDataParallel model; if device is mlu,
-    return a MLUDataParallel model.
+    if device is cuda, return a MMDataParallel model; if device is npu,
+    return a NPUDataParallel model.
 
     Args:
         model (:class:`nn.Module`): model to be parallelized.
-        device (str): device type, cuda, cpu or mlu. Defaults to cuda.
+        device (str): device type, cuda, cpu or npu. Defaults to cuda.
         dim (int): Dimension used to scatter the data. Defaults to 0.
 
     Returns:
@@ -37,11 +37,11 @@ def build_ddp(model, device='cuda', *args, **kwargs):
     """Build DistributedDataParallel module by device type.
 
     If device is cuda, return a MMDistributedDataParallel model;
-    if device is mlu, return a MLUDistributedDataParallel model.
+    if device is npu, return a NPUDistributedDataParallel model.
 
     Args:
         model (:class:`nn.Module`): module to be parallelized.
-        device (str): device type, mlu or cuda.
+        device (str): device type, npu or cuda.
 
     Returns:
         :class:`nn.Module`: the module to be parallelized
